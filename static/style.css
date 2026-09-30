@@ -1,0 +1,204 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Calculator */
+
+.calculator {
+    width: 390px;
+    min-height: 720px;
+    background: #000;
+    padding: 20px 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+/* Display */
+
+.display {
+    width: 100%;
+    height: 210px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    padding: 10px 8px 25px;
+
+    overflow: hidden;
+}
+
+/* Previous calculation */
+
+#previous {
+    width: 100%;
+    min-height: 30px;
+
+    color: #777;
+
+    font-size: 22px;
+    text-align: right;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    margin-bottom: 5px;
+}
+
+/* Main display */
+
+#display {
+    width: 100%;
+
+    color: white;
+
+    font-size: clamp(42px, 12vw, 65px);
+    font-weight: 300;
+
+    text-align: right;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Buttons */
+
+.buttons {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 12px;
+}
+
+/* All buttons */
+
+button {
+    height: 78px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #333333;
+    color: white;
+
+    font-size: 28px;
+    font-weight: 400;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.1s ease,
+        filter 0.1s ease;
+}
+
+/* Button click animation */
+
+button:active {
+    transform: scale(0.90);
+    filter: brightness(1.3);
+}
+
+/* AC / Backspace / Percentage */
+
+button.top {
+    background: #a5a5a5;
+    color: #000;
+}
+
+/* Operators */
+
+button.operator,
+button.equal {
+    background: #ff9500;
+    color: white;
+}
+
+/* Zero button */
+
+button.zero {
+    grid-column: span 2;
+
+    border-radius: 45px;
+
+    text-align: left;
+
+    padding-left: 30px;
+}
+
+/* Mobile screen */
+
+@media (max-width: 450px) {
+
+    body {
+        align-items: stretch;
+    }
+
+    .calculator {
+        width: 100%;
+        min-height: 100vh;
+
+        padding: 15px;
+    }
+
+    .display {
+        height: 230px;
+
+        padding-bottom: 25px;
+    }
+
+    #display {
+        font-size: clamp(40px, 15vw, 60px);
+    }
+
+    #previous {
+        font-size: 18px;
+    }
+
+    .buttons {
+        gap: 10px;
+    }
+
+    button {
+        height: 72px;
+        font-size: 26px;
+    }
+}
+
+/* Small phones */
+
+@media (max-height: 700px) {
+
+    .calculator {
+        min-height: 100vh;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .display {
+        height: 170px;
+    }
+
+    button {
+        height: 62px;
+    }
+
+    .buttons {
+        gap: 8px;
+    }
+}
